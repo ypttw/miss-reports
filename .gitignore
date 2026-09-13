@@ -1,0 +1,8 @@
+# Secret and database exclusions
+*.db
+*.sqlite
+*.env
+*.log
+*.token
+credentials.json
+__pycache__/
