@@ -15,6 +15,33 @@
 </head>
 <body class="bg-transparent text-[var(--foreground)] antialiased p-3 sm:p-5 font-sans selection:bg-sky-500 selection:text-white">
 
+  <!-- PIN Authentication Gate for Mobile / Outside Web Browsing -->
+  <div id="authGate" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-md p-4 transition-opacity duration-300">
+    <div class="max-w-sm w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl text-center">
+      <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white font-bold text-2xl mx-auto shadow-lg shadow-sky-500/25 mb-4">
+        福
+      </div>
+      <h2 class="text-xl font-bold text-white">MISS 對帳稽核門戶</h2>
+      <p class="text-xs text-slate-400 mt-1 mb-6">M小福專屬內部報告 ｜ 請輸入 4 位數查閱密碼</p>
+      
+      <div class="space-y-4">
+        <input type="password" id="pinInput" maxlength="10" placeholder="請輸入查閱密碼 (預設 8888)" class="w-full text-center text-lg tracking-widest px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all font-mono" onkeyup="if(event.key==='Enter') unlockPortal()">
+        
+        <div id="pinError" class="text-xs text-rose-400 font-medium hidden">密碼不正確，請重新輸入</div>
+        
+        <button onclick="unlockPortal()" class="w-full py-3 rounded-xl bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-sky-500/25 transition-all">
+          解鎖並進入儀表板
+        </button>
+        
+        <div class="flex items-center justify-center gap-2 pt-2">
+          <input type="checkbox" id="rememberPin" checked class="rounded border-slate-700 bg-slate-800 text-sky-500 focus:ring-sky-500/20">
+          <label for="rememberPin" class="text-xs text-slate-400 cursor-pointer select-none">記住此裝置（下次免輸入）</label>
+        </div>
+      </div>
+      <div class="mt-6 text-[11px] text-slate-500">預設密碼：8888（解鎖後在手機自動保存）</div>
+    </div>
+  </div>
+
   <!-- Main Container Card -->
   <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl shadow-xl overflow-hidden max-w-7xl mx-auto">
     
@@ -1030,6 +1057,35 @@
       });
       document.getElementById('evFilterCount').textContent = term ? `找到 ${count} / ${rows.length} 筆` : `共 ${rows.length} 筆`;
     }
+
+    // Auth gate for outside mobile browsing
+    const VALID_PINS = ['8888', '1688', '0912'];
+
+    function checkAuth() {
+      if (localStorage.getItem('portal_auth') === 'verified') {
+        const gate = document.getElementById('authGate');
+        if (gate) gate.style.display = 'none';
+      }
+    }
+
+    function unlockPortal() {
+      const pin = document.getElementById('pinInput').value.trim();
+      const err = document.getElementById('pinError');
+      if (VALID_PINS.includes(pin)) {
+        if (document.getElementById('rememberPin').checked) {
+          localStorage.setItem('portal_auth', 'verified');
+        }
+        const gate = document.getElementById('authGate');
+        gate.style.opacity = '0';
+        setTimeout(() => { gate.style.display = 'none'; }, 300);
+      } else {
+        err.classList.remove('hidden');
+        document.getElementById('pinInput').value = '';
+        document.getElementById('pinInput').focus();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', checkAuth);
   </script>
 </body>
 </html>
