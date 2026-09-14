@@ -55,9 +55,9 @@
           <div>
             <div class="flex items-center gap-2">
               <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">MISS & MISS ORDER 對帳稽核門戶</h1>
-              <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">2026-09-14 最新日報</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">2026-09-14 深度修訂版</span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">M小福 官方全專案查核 ｜ 225 筆事件全量核對 ｜ 提案 A/B 實戰零回歸 ｜ 每日定時發布</p>
+            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">M小福 官方全專案深度查核 ｜ 十大災情全面盤點 ｜ 外部 Agent 修復成果驗核 (133 Tests PASS) ｜ 網頁直覽免下載</p>
           </div>
         </div>
 
@@ -65,15 +65,15 @@
         <div class="flex flex-wrap items-center gap-2">
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            採集服務 Port 5005 (PID 38176) 正常
+            採集服務 Port 5005 正常
           </span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-sky-500/10 text-sky-400 border border-sky-500/20">
             <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-            提案 A/B 實戰驗收通過
+            Agent 修復 133 測試全過
           </span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
             <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-            例行排程：週一至六 21:00
+            4 項未修復已立案計劃
           </span>
         </div>
       </div>
@@ -91,21 +91,27 @@
           <div class="text-[11px] text-slate-500 mt-0.5">記錄 127 / YPM 51 / 小新 41</div>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
-          <div class="text-xs text-slate-400">寫入異常檢討</div>
-          <div class="text-xl sm:text-2xl font-bold text-amber-400 mt-1">僅 1 筆</div>
-          <div class="text-[11px] text-slate-500 mt-0.5">開獎領獎訊息觸發防護 (非注單)</div>
+          <div class="text-xs text-slate-400">深度挖掘災情</div>
+          <div class="text-xl sm:text-2xl font-bold text-rose-400 mt-1">10 大項目</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">已全數定性、定位與評估</div>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
-          <div class="text-xs text-slate-400">重大定位發現</div>
-          <div class="text-xl sm:text-2xl font-bold text-rose-400 mt-1">Chang TG 403</div>
-          <div class="text-[11px] text-slate-500 mt-0.5">20:35 轉發照片遭 MISS 路由阻擋</div>
+          <div class="text-xs text-slate-400">Agent 修復驗證</div>
+          <div class="text-xl sm:text-2xl font-bold text-emerald-400 mt-1">133 Pass</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">8 項修復 0 失敗 / 0 回歸</div>
         </div>
       </div>
 
       <!-- Navigation Tabs -->
       <div class="flex items-center gap-1.5 overflow-x-auto mt-6 pt-2 border-t border-slate-800 text-sm scrollbar-none">
         <button onclick="switchTab('tab-daily0914')" id="btn-tab-daily0914" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all bg-sky-500/15 text-sky-400 border border-sky-500/30">
-          📊 09-14 白話總日報
+          📊 09-14 深度總日報
+        </button>
+        <button onclick="switchTab('tab-repairs0914')" id="btn-tab-repairs0914" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800 border border-transparent">
+          🛠️ Agent 修復檢核 (133 Tests)
+        </button>
+        <button onclick="switchTab('tab-plans0914')" id="btn-tab-plans0914" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800 border border-transparent">
+          📋 未修復處置計劃 (4大案)
         </button>
         <button onclick="switchTab('tab-ev0914')" id="btn-tab-ev0914" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800 border border-transparent">
           📋 09-14 逐筆佐證表 (225筆)
@@ -119,36 +125,128 @@
         <button onclick="switchTab('tab-daily0912')" id="btn-tab-daily0912" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800 border border-transparent">
           📜 09-12 歷史日報
         </button>
-        <button onclick="switchTab('tab-proposals')" id="btn-tab-proposals" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all text-slate-400 hover:text-white hover:bg-slate-800 border border-transparent">
-          🛠️ 五大修復方案進度
-        </button>
       </div>
     </div>
 
     <!-- Content Area -->
     <div class="p-5 sm:p-6">
 
-      <!-- TAB: 09-14 白話總日報 -->
+      <!-- TAB: 09-14 深度總日報 -->
       <div id="tab-daily0914" class="tab-content space-y-6">
         <div class="p-4 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sm">
           <div class="flex items-start gap-3">
             <span class="text-xl">📢</span>
             <div>
-              <div class="font-bold text-sky-400">M小福 2026-09-14 查核成果精要</div>
+              <div class="font-bold text-sky-400">M小福 2026-09-14 深度查核成果精要（全覆蓋修訂版）</div>
               <p class="text-slate-300 mt-1 leading-relaxed">
-                全日 225 個新事件、176 筆非空注單全量核對完成！昨日熱部署之<strong>提案 A（小新日期標題）</strong>與<strong>提案 B（YPM 頓號全車解析）</strong>經受全日真實流量檢驗，<strong>100% 正常解析、零掉單、零回歸</strong>！全日僅有 1 筆寫入異常（開獎後領獎訊息誤入觸發防護），並成功查明 20:35 Chang 開獎照片在 MISS 端遭 HTTP 403 阻擋之根本原因。
+                全日 225 個新事件、176 筆非空注單全量核對完成！針對先前漏報之問題進行地毯式深挖，共定性 <strong>十大災情</strong>。同時對外部 Agent 今日進行之 <strong>8 項核心修復</strong> 完成全面檢核，自動化測試 133 筆 100% 通過。針對尚未修復之項目，已擬定 <strong>4 大具體處置計劃</strong>。
               </p>
             </div>
+          </div>
+        </div>
+
+        <!-- 十大災情與修復狀態表格 -->
+        <div class="rounded-xl border border-slate-800 bg-slate-950/70 overflow-hidden">
+          <div class="p-4 border-b border-slate-800 bg-slate-900/60 flex items-center justify-between">
+            <h3 class="font-bold text-sm text-white flex items-center gap-2">
+              <span>⚠️</span> 今日十大漏報災情深度剖析與修復對照
+            </h3>
+            <span class="text-xs text-slate-400">依嚴重程度排序</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-slate-800 bg-slate-900 text-slate-400 uppercase font-semibold">
+                  <th class="p-3 w-10 text-center">#</th>
+                  <th class="p-3">災情項目</th>
+                  <th class="p-3">影響範圍 / 事實現象</th>
+                  <th class="p-3 text-center">嚴重性</th>
+                  <th class="p-3 text-center">修復狀態</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-800/60">
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-rose-400">1</td>
+                  <td class="p-3 font-semibold text-white">B12 539 報帳完全缺席</td>
+                  <td class="p-3 text-slate-300">今晚 539 開獎後，<code>output/</code> 產出 0 張圖；日誌顯示 NO_MAPPING</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-rose-500/20 text-rose-400 font-bold">嚴重</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 A 排隊中</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-rose-400">2</td>
+                  <td class="p-3 font-semibold text-white">天天樂 GAS 404 整條鏈卡死</td>
+                  <td class="p-3 text-slate-300">開獎號碼正確辨識，但 GAS <code>safeTTWinningNumbers</code> 回傳 404，整條鏈 BLOCKED</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-rose-500/20 text-rose-400 font-bold">嚴重</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400 font-bold">✅ 已改 Sheets API 直寫</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-rose-400">3</td>
+                  <td class="p-3 font-semibold text-white">常勝軍 403 路由拒絕</td>
+                  <td class="p-3 text-slate-300">Port 5005 回傳 403 <code>Telegram route is not authorized</code>，進 dead queue</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-rose-500/20 text-rose-400 font-bold">嚴重</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400 font-bold">✅ 已修正 Chat ID 路由</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-amber-400">4</td>
+                  <td class="p-3 font-semibold text-white">小新 4 筆注單被 parser 誤殺</td>
+                  <td class="p-3 text-slate-300"><code>23星碰</code>缺金額、<code>。2*3</code>格式不認、<code>2🌟*20</code>誤判重複、<code>一組</code>漏認</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-rose-500/20 text-rose-400 font-bold">嚴重</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 B 待核准修改</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-slate-400">5</td>
+                  <td class="p-3 font-semibold text-white">B12 11:33 批次測試 6 事件全掛</td>
+                  <td class="p-3 text-slate-300">觸發 IMAGE_DOWNLOAD_FAILED、OCR_NOT_ACCEPTED、EVENT_ID_MISSING</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">中等</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-sky-500/20 text-sky-400">TTL 部分解法通過</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-slate-400">6</td>
+                  <td class="p-3 font-semibold text-white">YPM OCR 亂碼 (12.25+-7+-1+-4)</td>
+                  <td class="p-3 text-slate-300">OCR 產出連續運算符號亂碼，且辨識出重複號碼 <code>3,3</code></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">中等</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 C 待核准門檻</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-slate-400">7</td>
+                  <td class="p-3 font-semibold text-white">YPM AI Review 放棄 (MCP fail)</td>
+                  <td class="p-3 text-slate-300"><code>Antigravity headless MCP worker 已 fail closed</code>，無任何降級重試直接放棄</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">中等</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 C 待建 fallback</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-slate-400">8</td>
+                  <td class="p-3 font-semibold text-white">MISS ORDER 3 次重啟與 Flood Control</td>
+                  <td class="p-3 text-slate-300">Guardian 於 16:33、19:09、21:08 重啟；Telegram flood control 干擾</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">中等</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400">✅ 失敗通知已加入</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-slate-500">9</td>
+                  <td class="p-3 font-semibold text-white">YPM MacroDroid 截斷與 LINE 不一致</td>
+                  <td class="p-3 text-slate-300">19:45 MacroDroid 訊息文字遭截斷，與 LINE 原始文字不符</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-slate-700 text-slate-300">輕微</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-slate-700 text-slate-300">計劃 D 手機端調整</span></td>
+                </tr>
+                <tr class="hover:bg-slate-900/40">
+                  <td class="p-3 text-center font-bold text-slate-500">10</td>
+                  <td class="p-3 font-semibold text-white">記錄 3 筆連發重複宏攔截</td>
+                  <td class="p-3 text-slate-300">18:54 三筆相同 <code>今彩 03 26 34 800 x 1</code>，去重機制正常 BLOCKED</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-slate-700 text-slate-300">輕微</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400 font-bold">✅ 既有防護攔截</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <!-- Card 1 -->
           <div class="p-4 rounded-xl bg-slate-950/70 border border-emerald-500/30">
-            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold">實戰全日零故障</span>
-            <h4 class="font-bold text-sm text-white mt-2">提案 A & 提案 B 實戰驗證 100% 通過</h4>
+            <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-400 font-bold">實戰全日零回歸</span>
+            <h4 class="font-bold text-sm text-white mt-2">昨日提案 A & B 實戰驗證 100% 通過</h4>
             <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
-              • <strong>提案 A (點號標題)</strong>：小新 41 筆注單中，包含 <code>第一柱。18、08...</code> 等複雜標題均完全正常解析，幽靈號碼徹底根除。<br>
+              • <strong>提案 A (點號標題)</strong>：小新 41 筆注單中，包含 <code>第一柱。18、08...</code> 等標題均正常解析，幽靈號碼徹底根除。<br>
               • <strong>提案 B (頓號全車)</strong>：YPM 多筆 <code>01車50元</code>、<code>0.1車</code> 注單全車金額 100% 精準擷取，零掉單。
             </p>
           </div>
@@ -162,18 +260,191 @@
               • <strong>判定</strong>：此為開獎後「領獎 / 拿錢結算」文字，非下注單！系統觸發 <code>manual promotion requires exactly one pending append; found 0</code>，已安全轉入人工檢查，防護正常。
             </p>
           </div>
+        </div>
+      </div>
 
-          <!-- Card 3 -->
-          <div class="p-4 rounded-xl bg-slate-950/70 border border-rose-500/30 md:col-span-2">
-            <span class="text-xs px-2 py-0.5 rounded bg-rose-500/15 text-rose-400 font-bold">重大事故定位</span>
-            <h4 class="font-bold text-sm text-white mt-2">20:35 Chang 照片轉發遭拒絕 (HTTP 403 阻擋)</h4>
-            <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
-              • <strong>過程</strong>：MISS ORDER 於 20:35:09 收到 Chang Telegram 開獎圖（Update ID 349907705），轉發給 MISS B12 時，MISS 回傳 <code>HTTP 403: Telegram route is not authorized</code>，ORDER 重試 5 次後進入 dead (ID 1170)。<br>
-              • <strong>根因</strong>：MISS 端的 Telegram 路由白名單中未正確授權該來源 Chat ID，導致照片卡在入口未能自動產圖，已鎖定該具體關卡！
+      <!-- TAB: Agent 修復成果檢核 -->
+      <div id="tab-repairs0914" class="tab-content hidden space-y-6">
+        <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-sm">
+          <div class="flex items-start gap-3">
+            <span class="text-xl">✅</span>
+            <div>
+              <div class="font-bold text-emerald-400">外部 Agent 修復成果檢核總評：133 Tests 100% PASS！</div>
+              <p class="text-slate-300 mt-1 leading-relaxed">
+                M小福針對外部 Agent 今日在 MISS 與 MISS ORDER 進行之 <strong>8 項核心修復</strong> 逐一執行回歸測試與程式碼審查。經驗證，MISS 4 套測試（79 passed）、MISS ORDER 6 套測試（54 passed）<strong>全數通過，無任何測試回歸，亦未引入新已知缺陷</strong>。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 1：天天樂 GAS 404 → Sheets API 直寫</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">有效修復</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>miss_accounting_sheets.py</code><br>
+              • <strong>內容</strong>：移除對 GAS <code>safeTTWinningNumbers</code> 端點依賴，改以 Google Sheets API <code>spreadsheets.values.update</code> 直寫；保留公式佔用檢查、衝突值檢查與 readback 驗證。<br>
+              • <strong>檢核結果</strong>：徹底根除 GAS 404 阻擋風險，測試 <code>test_b12_ttl_direct_writer.py</code> 全通。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 2：常勝軍 Chat ID 路由修正</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">有效修復</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>miss_order/app.py</code><br>
+              • <strong>內容</strong>：將 <code>CHANG_PHOTO_CHAT_ID</code> 從測試群 <code>-1004415191836</code> 改為正式群 <code>-1003804335513</code>；Guardian 已於 21:08 重啟載入。<br>
+              • <strong>檢核結果</strong>：12 個 bridge 測試全過，根因已解決，待明日實戰開獎驗證。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 3：MISS ORDER 發布失敗 TG 通知</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">正向改進</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>miss_order/app.py</code><br>
+              • <strong>內容</strong>：<code>scheduler_loop</code> 增加 <code>on_failure</code> callback，發布失敗時即時推播 Telegram 警報到管理員 Chat，並附去重保護避免洗版。<br>
+              • <strong>檢核結果</strong>：管理員不再需要事後翻日誌，異常秒級感知。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 4：Wave Bridge 3分鐘延遲發布</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">有效修復</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>miss_order/scheduler_v5.py</code><br>
+              • <strong>內容</strong>：拆分 <code>prepared</code> → 先寫 GS 驗證 → 延遲 3 分鐘 → 觸發 F1 下注交接。<br>
+              • <strong>檢核結果</strong>：21 個 publication 測試全通，避免 GS 尚未確認即觸發下注。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 5：Snapshot 嚴格冪等校驗</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">有效修復</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>publication.py</code> / <code>publication_v3.py</code><br>
+              • <strong>內容</strong>：新增 <code>_has_snapshot_history()</code> 檢查，只有在 DB 真正存在歷史發布記錄時才 skip，防止虛假冪等跳過未發布客戶。<br>
+              • <strong>檢核結果</strong>：9 個測試全通，徹底封死發布漏單破口。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 6：GS 123 列加總金額核對</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">正向改進</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>gs_publisher.py</code> / <code>gs_publisher_v3.py</code><br>
+              • <strong>內容</strong>：寫入後讀回 row 123 總金額，驗證是否等於 row 5-120 加總乘以倍率 (100/100/10)。<br>
+              • <strong>檢核結果</strong>：有效防止試算表公式損壞或人工誤刪造成的金額失真。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 7：Edge Line OKK 缺失回填</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">有效修復</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>miss_edge_line_wave.py</code><br>
+              • <strong>內容</strong>：當 c.py OKK 完成信號到達但 W 未建立 run 記錄時，啟動 fallback backfill 機制。<br>
+              • <strong>檢核結果</strong>：解決 <code>WAITING_FOR_EXACT_W_RUN</code> 永遠卡死問題。
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white text-sm">修復 8：週日 SS.PY 週帳自動串接</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold">功能新增</span>
+            </div>
+            <p class="text-slate-400 mt-2 leading-relaxed">
+              • <strong>檔案</strong>：<code>w.py</code><br>
+              • <strong>內容</strong>：週日早晨第一班 s.py 執行成功後，自動串接啟動 <code>SS.PY</code> 產出週帳報告。<br>
+              • <strong>檢核結果</strong>：週日週帳作業完全自動化。
             </p>
           </div>
         </div>
       </div>
+
+      <!-- TAB: 未修復處置計劃 -->
+      <div id="tab-plans0914" class="tab-content hidden space-y-6">
+        <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-sm">
+          <div class="flex items-start gap-3">
+            <span class="text-xl">📋</span>
+            <div>
+              <div class="font-bold text-amber-400">未修復問題之處置計劃（等待老闆核准即可動工）</div>
+              <p class="text-slate-300 mt-1 leading-relaxed">
+                針對今日深度審計發現但尚未修復的 4 大問題，M小福已擬定最小改動、零副作用的處置方案。依據專案規範，涉及解析器與核心業務邏輯之修改，需先向老闆呈報方案並取得核准。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-xs">
+          <!-- Plan A -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-rose-500/40">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-rose-400 text-sm">🔥 計劃 A：539 報帳 NO_MAPPING 彩種配置補齊（優先級：最高）</span>
+              <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 font-bold">預估 15 分鐘</span>
+            </div>
+            <div class="mt-3 text-slate-300 space-y-1.5 leading-relaxed">
+              <p>• <strong>問題根因</strong>：B12 報帳引擎在收到 539 開獎號碼時，因彩種映射表缺少 539 對應鍵值，觸發 <code>NO_MAPPING</code> 拋出異常，導致全日產圖 0 張。</p>
+              <p>• <strong>處置方式</strong>：在 <code>miss_accounting_sheets.py</code> 補齊 539 彩種映射配置（包含 Spreadsheet ID、工作表 GID 與輸入儲存格座標），比照天天樂與常勝軍規格。</p>
+              <p>• <strong>安全性</strong>：僅增加字典映射項，不改動既有寫入與防護邏輯。</p>
+            </div>
+          </div>
+
+          <!-- Plan B -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-amber-500/40">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-amber-400 text-sm">⚡ 計劃 B：小新解析器 4 大缺陷修復（優先級：高）</span>
+              <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-bold">需老闆核准 Parser 修改</span>
+            </div>
+            <div class="mt-3 text-slate-300 space-y-1.5 leading-relaxed">
+              <p>• <strong>問題根因</strong>：4 筆客單遭 parser 誤殺（<code>23星碰</code>缺金額、<code>。2*3</code>格式未認、<code>2🌟*20</code>誤判重複、<code>一組</code>漏認）。</p>
+              <p>• <strong>處置方式</strong>：在 <code>miss_middle_parser.py</code> 中：</p>
+              <p class="pl-4">1. 增加「星碰」關鍵字同義於「碰」之正則匹配；<br>2. 增加前導標點符號（句號、頓號）自動去除前置處理；<br>3. emoji 星號（🌟、⭐）正規化為標準 <code>*</code> 後再進去重；<br>4. 增加「一組/二組」作為倍率 1/2 的數量詞辨識。</p>
+              <p>• <strong>驗證方案</strong>：以今日 41 筆小新實單 + 4 筆錯單進行全量回歸測試，確保 100% 零回歸。</p>
+            </div>
+          </div>
+
+          <!-- Plan C -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-sky-500/40">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-sky-400 text-sm">🔍 計劃 C：YPM OCR 亂碼過濾門檻與 AI Review 降級 Fallback（優先級：中）</span>
+              <span class="px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-bold">預估 30 分鐘</span>
+            </div>
+            <div class="mt-3 text-slate-300 space-y-1.5 leading-relaxed">
+              <p>• <strong>問題根因</strong>：OCR 偶發輸出 <code>12.25+-7+-1+-4</code> 亂碼，而 AI Review 因 MCP 斷線直接放棄，造成下游無法正確處理。</p>
+              <p>• <strong>處置方式</strong>：</p>
+              <p class="pl-4">1. 增加 OCR 品質門檻：偵測到連續運算符號或重複號碼時，自動標記為 <code>OCR_LOW_CONFIDENCE</code>；<br>2. AI Review 增加本地模型 / 次級端點 Fallback，避免單一 MCP worker fail closed 即中斷流程。</p>
+            </div>
+          </div>
+
+          <!-- Plan D -->
+          <div class="p-4 rounded-xl bg-slate-950 border border-slate-700">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-300 text-sm">📱 計劃 D：MacroDroid 手機端訊息擷取長度調整（優先級：低）</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400">維運設定調整</span>
+            </div>
+            <div class="mt-3 text-slate-300 space-y-1.5 leading-relaxed">
+              <p>• <strong>問題根因</strong>：MacroDroid 在長訊息時因 Android 通知字數限制截斷文字，非 MISS 程式 bug。</p>
+              <p>• <strong>處置方式</strong>：在手機 MacroDroid 設定中改採 LINE 廣播監聽或 Accessibility 服務提取完整內文，或在 MISS 端當發現 MacroDroid 文字遭截斷時自動回退以 LINE 原始文本為準。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- TAB: 09-14 逐筆佐證表 -->
       <div id="tab-ev0914" class="tab-content hidden space-y-4">
