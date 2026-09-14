@@ -166,11 +166,11 @@
               </thead>
               <tbody class="divide-y divide-slate-800/60">
                 <tr class="hover:bg-slate-900/40">
-                  <td class="p-3 text-center font-bold text-rose-400">1</td>
-                  <td class="p-3 font-semibold text-white">B12 539 報帳完全缺席</td>
-                  <td class="p-3 text-slate-300">今晚 539 開獎後，<code>output/</code> 產出 0 張圖；日誌顯示 NO_MAPPING</td>
-                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-rose-500/20 text-rose-400 font-bold">嚴重</span></td>
-                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 A 排隊中</span></td>
+                  <td class="p-3 text-center font-bold text-amber-400">1</td>
+                  <td class="p-3 font-semibold text-white">B12 539 報帳未產圖 (今晚 0 張)</td>
+                  <td class="p-3 text-slate-300">539 試算表與彩種配置健全；因 ORDER 群組路由阻擋，修復後實戰產圖待驗收</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400 font-bold">待實測</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">待明日 539 實戰產圖</span></td>
                 </tr>
                 <tr class="hover:bg-slate-900/40">
                   <td class="p-3 text-center font-bold text-rose-400">2</td>
@@ -187,11 +187,11 @@
                   <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400 font-bold">✅ 已修正 Chat ID 路由</span></td>
                 </tr>
                 <tr class="hover:bg-slate-900/40">
-                  <td class="p-3 text-center font-bold text-amber-400">4</td>
-                  <td class="p-3 font-semibold text-white">小新 4 筆注單被 parser 誤殺</td>
-                  <td class="p-3 text-slate-300"><code>23星碰</code>缺金額、<code>。2*3</code>格式不認、<code>2🌟*20</code>誤判重複、<code>一組</code>漏認</td>
-                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-rose-500/20 text-rose-400 font-bold">嚴重</span></td>
-                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 B 待核准修改</span></td>
+                  <td class="p-3 text-center font-bold text-emerald-400">4</td>
+                  <td class="p-3 font-semibold text-white">小新 4 筆注單解析缺陷</td>
+                  <td class="p-3 text-slate-300"><code>23星碰</code>缺金額、<code>。2*3</code>乘號、<code>2🌟*20</code>虛假去重、<code>一組</code>漏認</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400 font-bold">已解決</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-emerald-500/20 text-emerald-400 font-bold">✅ 4/4 全量修復 0回歸</span></td>
                 </tr>
                 <tr class="hover:bg-slate-900/40">
                   <td class="p-3 text-center font-bold text-slate-400">5</td>
@@ -202,10 +202,10 @@
                 </tr>
                 <tr class="hover:bg-slate-900/40">
                   <td class="p-3 text-center font-bold text-slate-400">6</td>
-                  <td class="p-3 font-semibold text-white">YPM OCR 亂碼 (12.25+-7+-1+-4)</td>
-                  <td class="p-3 text-slate-300">OCR 產出連續運算符號亂碼，且辨識出重複號碼 <code>3,3</code></td>
-                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">中等</span></td>
-                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-400">計劃 C 待核准門檻</span></td>
+                  <td class="p-3 font-semibold text-white">YPM 立柱手寫單 OCR 數字誤差</td>
+                  <td class="p-3 text-slate-300">手寫立柱格式完全標準；手寫數字 OCR 混淆（如 25/35 誤判），非格式問題</td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-slate-700 text-slate-300">已釐清</span></td>
+                  <td class="p-3 text-center"><span class="px-2 py-0.5 rounded text-[11px] bg-slate-700 text-slate-300">手寫 OCR 辨識層面</span></td>
                 </tr>
                 <tr class="hover:bg-slate-900/40">
                   <td class="p-3 text-center font-bold text-slate-400">7</td>
