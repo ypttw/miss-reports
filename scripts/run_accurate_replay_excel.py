@@ -24,7 +24,7 @@ conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
 cur = conn.cursor()
 
 cur.execute('''
-    SELECT event_id, source, event_time, target_sheet, raw_text, 
+    SELECT event_id, source, event_time, target_sheet, raw_text,
            parse_result_json, gs_write_status, manual_status
     FROM events
     ORDER BY rowid ASC
@@ -287,10 +287,10 @@ for ev_idx, row in enumerate(all_events, 1):
             sel = b.get('selection','').replace(' ', '').replace('.', ',').strip()
             nums = ",".join(sorted(str(int(n)) for n in sel.split(',') if n.isdigit()))
             return (nums or sel, b.get('count',''), b.get('play',''), b.get('car',''), b.get('star2',''), b.get('star3',''), b.get('star4',''))
-        
+
         saved_keys = [bet_key(b) for b in saved_bets]
         curr_keys = [bet_key(b) for b in curr_bets]
-        
+
         if saved_keys == curr_keys:
             verdict = "EXACT_MATCH (完全一致)"
             stats['EXACT_MATCH'] += 1
@@ -341,7 +341,7 @@ for ev_idx, row in enumerate(all_events, 1):
     if "EXACT_MATCH" in verdict: st_cell.fill = fill_exact
     elif "DIFF_CONTENT" in verdict: st_cell.fill = fill_diff
     elif "IMPROVED" in verdict: st_cell.fill = fill_improved
-    elif "REGRESSION" in verdict: 
+    elif "REGRESSION" in verdict:
         st_cell.fill = fill_regression
         st_cell.font = font_alert
     else: st_cell.fill = fill_empty
@@ -391,7 +391,7 @@ for ev_idx, row in enumerate(all_events, 1):
             if "EXACT_MATCH" in verdict: st_cell.fill = fill_exact
             elif "DIFF_CONTENT" in verdict: st_cell.fill = fill_diff
             elif "IMPROVED" in verdict: st_cell.fill = fill_improved
-            elif "REGRESSION" in verdict: 
+            elif "REGRESSION" in verdict:
                 st_cell.fill = fill_regression
                 st_cell.font = font_alert
             else: st_cell.fill = fill_empty
@@ -409,7 +409,7 @@ for ev_idx, row in enumerate(all_events, 1):
                 if "EXACT_MATCH" in verdict: st_cell.fill = fill_exact
                 elif "DIFF_CONTENT" in verdict: st_cell.fill = fill_diff
                 elif "IMPROVED" in verdict: st_cell.fill = fill_improved
-                elif "REGRESSION" in verdict: 
+                elif "REGRESSION" in verdict:
                     st_cell.fill = fill_regression
                     st_cell.font = font_alert
                 else: st_cell.fill = fill_empty
