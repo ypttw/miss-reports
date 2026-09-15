@@ -55,9 +55,9 @@
           <div>
             <div class="flex items-center gap-2">
               <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-white">MISS & MISS ORDER 對帳稽核門戶</h1>
-              <span class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-semibold border border-emerald-500/20">2026-09-15 正式查核版</span>
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-500/10 text-rose-400 font-semibold border border-rose-500/20">2026-09-15 審計查核版（部署否決 DEPLOYMENT_VETOED）</span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">M小福 官方全專案深度查核 ｜ 199 筆真實收單盤點 ｜ 麗惠單&碰碰單通用優化 ｜ SQLite全庫對帳Excel已同步</p>
+            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">M小福 官方全專案深度查核 ｜ 199 筆真實收單盤點 ｜ 終端實戰回執判定 BLOCKED_AT_IDENTITY ｜ 全庫 195 筆回退維持未通過</p>
           </div>
         </div>
 
@@ -67,13 +67,17 @@
             <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
             採集服務 Port 5005 正常
           </span>
-          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-sky-500/10 text-sky-400 border border-sky-500/20">
-            <span class="w-2 h-2 rounded-full bg-sky-400"></span>
-            Agent 修復 133 測試全過
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
+            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+            審計裁決：DEPLOYMENT_VETOED（嚴禁部署）
+          </span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
+            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+            全庫回放：REGRESSION=195（FAILED）
           </span>
           <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
             <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-            4 項未修復已立案計劃
+            實戰回執：BLOCKED_AT_IDENTITY（斷鏈）
           </span>
         </div>
       </div>
@@ -86,9 +90,9 @@
           <div class="text-[11px] text-slate-500 mt-0.5">LINE 142 / Macro 57</div>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
-          <div class="text-xs text-slate-400">成交流水寫入</div>
+          <div class="text-xs text-slate-400">GS 寫入狀態</div>
           <div class="text-xl sm:text-2xl font-bold text-emerald-400 mt-1">73 筆</div>
-          <div class="text-[11px] text-slate-500 mt-0.5">written 帳目全平 / 51 paired</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">written (回執斷鏈) / 51 paired</div>
         </div>
         <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
           <div class="text-xs text-slate-400">忽略與安全防護</div>
@@ -100,25 +104,30 @@
           <div class="text-xl sm:text-2xl font-bold text-rose-400 mt-1">7 筆</div>
           <div class="text-[11px] text-slate-500 mt-0.5">5 人工檢查 / 2 筆客戶開獎算式</div>
         </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="text-xs text-slate-400">終端回執有效性</div>
+          <div class="text-xl sm:text-2xl font-bold text-rose-400 mt-1">0 / 2,299</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">BLOCKED_AT_IDENTITY (缺外鍵)</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="text-xs text-slate-400">全庫回放回退數</div>
+          <div class="text-xl sm:text-2xl font-bold text-rose-400 mt-1">195 筆</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">194 圖片無OCR / 1 文字差異 (FAILED)</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="text-xs text-slate-400">離線單元測試</div>
+          <div class="text-xl sm:text-2xl font-bold text-amber-400 mt-1">6 個手工案例</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">僅限手工案例，未達全庫通過</div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
+          <div class="text-xs text-slate-400">最高部署閘門</div>
+          <div class="text-xl sm:text-2xl font-bold text-rose-500 mt-1">VETOED</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">審計否決：工作區維持 Dirty 嚴禁部署</div>
+        </div>
       </div>
-        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
-          <div class="text-xs text-slate-400">非空有效注單</div>
-          <div class="text-xl sm:text-2xl font-bold text-emerald-400 mt-1">176 筆</div>
-          <div class="text-[11px] text-slate-500 mt-0.5">記錄 127 / YPM 51 / 小新 41</div>
-        </div>
-        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
-          <div class="text-xs text-slate-400">深度挖掘災情</div>
-          <div class="text-xl sm:text-2xl font-bold text-rose-400 mt-1">10 大項目</div>
-          <div class="text-[11px] text-slate-500 mt-0.5">已全數定性、定位與評估</div>
-        </div>
-        <div class="p-3.5 rounded-xl bg-slate-950/60 border border-slate-800">
-          <div class="text-xs text-slate-400">Agent 修復驗證</div>
-          <div class="text-xl sm:text-2xl font-bold text-emerald-400 mt-1">133 Pass</div>
-          <div class="text-[11px] text-slate-500 mt-0.5">8 項修復 0 失敗 / 0 回歸</div>
-        </div>
-      </div>
+    </div>
 
-            <!-- Navigation Tabs -->
+    <!-- Navigation Tabs -->
       <div class="flex items-center gap-1.5 overflow-x-auto mt-6 pt-2 border-t border-slate-800 text-sm scrollbar-none">
         <button onclick="switchTab('tab-daily0915')" id="btn-tab-daily0915" class="tab-btn px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all bg-sky-500/15 text-sky-400 border border-sky-500/30">
           📊 09-15 每日總日報
@@ -153,7 +162,7 @@
               <div class="font-bold text-sky-400 text-base">M小福 2026-09-15 全專案每日查核與對帳報告</div>
               <p class="text-slate-300 mt-1 leading-relaxed">
                 報告歸屬日期：<strong>2026-09-15（週二）</strong> ｜ 查核時間窗口：<strong>2026-09-14 20:31 至 2026-09-15 20:30（含晚間開獎至 21:00）</strong>。<br/>
-                經真實時間窗口嚴格過濾，全日真實收單共 <strong>199 筆事件</strong>（LINE 142 筆、Macro 57 筆），完全排除 8 月舊測試資料干擾！成交流水 <strong>73 筆 written 帳目全平</strong>，MacroDroid 備援 <strong>51 筆 paired</strong>。
+                經真實時間窗口嚴格過濾，全日真實收單共 <strong>199 筆事件</strong>（LINE 142 筆、Macro 57 筆）。GS 帳冊標記 <strong>73 筆 written</strong>（終端下注單號處於 <strong><code class="text-amber-400 font-bold">BLOCKED_AT_IDENTITY</code></strong> 斷鏈狀態），MacroDroid 備援 <strong>51 筆 paired</strong>。全庫回放出現 <strong>195 筆回退（REGRESSION=195）</strong>，最高審計裁決維持 <strong><code class="text-rose-400 font-bold">DEPLOYMENT_VETOED</code>（嚴禁部署）</strong>。
               </p>
             </div>
           </div>
