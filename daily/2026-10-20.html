@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M小福 2026-10-20 今日報告</title>
+<style>
+  body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;background:#0f172a;color:#e2e8f0;margin:0;padding:14px;line-height:1.7}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:22px;margin:8px 0}
+  h2{font-size:18px;margin:26px 0 10px;padding-left:10px;border-left:4px solid #38bdf8}
+  .sub{color:#94a3b8;font-size:13px}
+  .card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:14px;margin:10px 0}
+  .ok{border-left:5px solid #10b981}.ask{border-left:5px solid #f59e0b}.todo{border-left:5px solid #38bdf8}.done{border-left:5px solid #a78bfa}
+  .tag{display:inline-block;font-size:12px;padding:1px 9px;border-radius:99px;margin-right:6px;font-weight:bold}
+  .t-ok{background:#064e3b;color:#6ee7b7}.t-ask{background:#78350f;color:#fcd34d}.t-todo{background:#0c4a6e;color:#7dd3fc}.t-done{background:#4c1d95;color:#c4b5fd}
+  .big{font-size:17px;font-weight:bold;margin-bottom:4px}
+  a{color:#7dd3fc}
+  ul{margin:6px 0 0 18px;padding:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<a href="../index.html">← 回到總門戶</a>
+<h1>M小福 今日報告　2026-10-20（週二）</h1>
+<div class="sub">更新時間 23:40｜只看資料，沒有重送、補單、下注、重啟任何服務｜今天共收到 170 筆訊息（LINE＋TG）</div>
+
+<h2>一、先看結論</h2>
+<div class="card ok"><span class="tag t-ok">沒漏單</span>被系統「忽略」的訊息我都看過內容：都是聊天、漲價討論、帳款表、開獎圖，沒有漏掉的下注單。</div>
+<div class="card ask"><span class="tag t-ask">要你決定 2 件</span>① 宜芃媽的 539 報帳圖等你按確認　② 10/13 一張手寫單當天有沒有補（見第三節）</div>
+<div class="card done"><span class="tag t-done">已修好 1 件</span>小新的「通知失敗」誤標（見第二節）。</div>
+
+<h2>二、今天已經處理的</h2>
+<div class="card done">
+  <div class="big">小新單被寫成「TG 通知失敗」→ 已修</div>
+  <b>白話：</b>小新的單本來就不發 TG 通知，系統也真的沒發，這是正常的。可是系統把「沒發」寫成「通知失敗」，看起來像出事。單子、下注、金額完全沒受影響，只是備註字很嚇人。今天有 14 筆，歷史上累計 600 多筆都是這樣。<br>
+  <b>怎麼修：</b>只改一行——小新不再被寫成「失敗」；其他分頁的行為完全不變。<br>
+  <b>測試：</b>先在隔離環境測，修正前會出錯、修正後通過；相關的舊功能測試（收單寫入、小新寫入、重送保護）全部沒變。<br>
+  <b>目前狀態：</b>檔案已換上新版，原檔已備份。<b>但收單服務還在跑舊版</b>，要等下次重新啟動才會生效；在那之前小新的備註還是會寫「失敗」（只是文字，無害）。
+</div>
+
+<h2>三、等你決定</h2>
+<div class="card ask">
+  <div class="big">宜芃媽的 539 報帳圖還沒送出</div>
+  21:44 重新做了圖，新版預覽已傳到你的 TG（預覽訊息 4503），等你確認才會送到群組。這是正常的人工確認步驟，我不會代按。
+</div>
+<div class="card ask">
+  <div class="big">10/13 何方伶的一張手寫單</div>
+  那天 19:17 她傳了一張手寫的 539 單（8 個號碼；2星3星各 20 元、4星 10 元），系統收到了，但一直沒寫進去也沒結案。19:31 她另外重拍傳了一張，那張有寫入，但金額不同。<br>
+  <b>想問：</b>19:17 那張當天你有沒有手動補上？不記得可以不管，我就標「歷史未確認」，不會補寫。
+</div>
+
+<h2>四、看起來怪、其實沒問題的（不用管）</h2>
+<div class="card ok"><span class="tag t-ok">正常</span><b>5 筆 Macro「需人工」</b>：都是 LINE 通話通知（「LINE語音通話來電中…」）或聊天，不是下注單。</div>
+<div class="card ok"><span class="tag t-ok">正常</span><b>一張「待處理」的 539 開獎圖</b>：那是開獎圖，已拿去做報帳圖，號碼對得上。</div>
+<div class="card ok"><span class="tag t-ok">正常</span><b>一張「待處理」的「539 限牌通告、37 全車漲 15 元」</b>：這是通知不是下注單，沒寫入是對的。</div>
+
+<h2>五、明天繼續追</h2>
+<div class="card todo">
+  <ul>
+    <li>約 33 筆「已寫入、但被標人工檢查」的單，看是不是系統誤判。</li>
+    <li>龍哥的 539 報帳為什麼被跳過。</li>
+    <li>今天每一張單的逐筆核對（今天只做到整體檢查）。</li>
+    <li>確認小新修正在下次重啟後真的生效。</li>
+  </ul>
+</div>
+
+<h2>六、今天系統狀態</h2>
+<div class="card ok">收單服務正常、沒有積壓；MISS ORDER 沒有新事故、訊息都送達；中文全車入口修正（今晚 23:04 已載入）等下一次自然來單再驗證。</div>
+
+<div class="sub" style="margin-top:24px">這頁是白話版。要看詳細紀錄請看工作日誌（reports/mxiaofu/journal）。</div>
+</div>
+</body>
+</html>
