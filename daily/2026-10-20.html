@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M小福 2026-10-20 工作報告（精準版）</title>
+<title>M小福 2026-10-20 工作報告（實戰下注核對版）</title>
 <style>
   body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei",sans-serif;background:#090d16;color:#e2e8f0;margin:0;padding:16px;line-height:1.7}
   .wrap{max-width:800px;margin:0 auto}
@@ -12,13 +12,11 @@
   .box{background:#131c2e;border:1px solid #1e293b;border-radius:12px;padding:16px;margin:14px 0}
   .ok{border-left:5px solid #10b981}
   .warn{border-left:5px solid #f59e0b}
-  .err{border-left:5px solid #ef4444}
   .blue{border-left:5px solid #38bdf8}
   .title{font-size:16px;font-weight:bold;margin-bottom:6px;display:flex;align-items:center;gap:8px}
   .tag{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600}
   .tag-ok{background:#064e3b;color:#34d399}
   .tag-warn{background:#78350f;color:#fbbf24}
-  .tag-err{background:#7f1d1d;color:#f87171}
   .tag-blue{background:#0c4a6e;color:#38bdf8}
   table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px}
   th,td{border:1px solid #1e293b;padding:8px 10px;text-align:left}
@@ -30,60 +28,56 @@
 <body>
 <div class="wrap">
 <a href="../index.html">← 回到門戶首頁</a>
-<h1>M小福 今日對帳與問題處理報告</h1>
-<div class="meta">日期：2026-10-20 ｜ 查核原則：分清解析/寫入/下注 ｜ 解決問題導向</div>
+<h1>M小福 今日對帳與下注核對報告</h1>
+<div class="meta">日期：2026-10-20 ｜ 下注依據：bet_automation.log 實戰日誌 ｜ 解決問題導向</div>
 
 <div class="box ok">
-  <div class="title"><span class="tag tag-ok">安全確認</span>下注風險清查：今日零錯誤下注</div>
-  經核對下注程序 <code>w.py</code> 與下注紀錄庫 <code>bet_attempts</code>：
+  <div class="title"><span class="tag tag-ok">下注實證</span>今天實際下注狀況（核對 bet_automation.log）</div>
+  經直接查驗 <code>bet_automation.log</code>（今日共 992 行下注紀錄、260 次流程處理）：
   <ul>
-    <li>今日誤寫入「記錄」分頁的對話與收單回報，<b>100% 沒有發動任何網站下注</b>（該分頁不在下注讀取名單內）。</li>
-    <li>今日全天系統下注執行數為 0，無任何誤下注、溢下注情況。</li>
+    <li><b>今天確有真實下注</b>：晚上 19:53 至 20:14 期間，系統正常處理「散單」分頁，透過 ChromeDriver 在 <code>jp5208.com</code> 成功完成多筆 <code>連碰_539</code>、<code>全車_539</code> 下注流程（ticket flow finished）。</li>
+    <li><b>誤入表與下注隔離確認</b>：誤入「記錄」分頁的聊天對話與收單回報，<b>沒有流進「散單」分頁，未被送去網站下注</b>。下注程式只針對「散單」內真實注單執行。</li>
   </ul>
 </div>
 
 <div class="box warn">
   <div class="title"><span class="tag tag-warn">今日問題</span>今天出現了哪些問題？處理到哪裡？</div>
   <table>
-    <tr><th>問題類型</th><th>具體情況</th><th>是否解決</th><th>當前進度與動作</th></tr>
+    <tr><th>問題項目</th><th>具體情況</th><th>處理進度</th></tr>
     <tr>
-      <td><b>機器人收單回報被重複解析</b></td>
-      <td>系統在群組發出「收單 下注中」彙整時，又被當成新注單抓取寫入。</td>
-      <td><span class="tag tag-blue">隔離修補完成</span></td>
-      <td>已完成精準過濾邏輯（同時辨識收單下注中+本次注單特徵），<b>保留正常改單</b>。已在隔離副本驗證通過，待帶入正式服務。</td>
+      <td><b>機器人收單回報被回鍋抓取</b></td>
+      <td>系統在群組發出「收單 下注中」彙整，又被解析抓進「記錄」分頁。</td>
+      <td><span class="tag tag-blue">隔離修補驗證完成</span><br>已寫好精準過濾邏輯（同時具備收單下注中+本次注單特徵），<b>完整保留正常改單</b>。</td>
     </tr>
     <tr>
-      <td><b>小新分頁誤標失敗</b></td>
-      <td>小新依規則不需發 TG 通知，系統卻註記為「TG通知呼叫失敗」。</td>
-      <td><span class="tag tag-blue">已改檔待重載</span></td>
-      <td>磁碟檔案已修正並完成回歸測試。服務仍在跑舊進程，待下次重啟後自動生效。</td>
+      <td><b>小新備註誤標「TG 通知失敗」</b></td>
+      <td>小新依規則不發通知，系統卻寫失敗字樣（無害但誤導）。</td>
+      <td><span class="tag tag-blue">磁碟已改，待服務重載</span><br>程式碼已修正，需等下次服務重啟生效。</td>
     </tr>
     <tr>
       <td><b>聊天與改單被抓號碼</b></td>
-      <td>聊天文字（如「12:30開盤」、「37拿掉改09」）被寫入試算表人工列。</td>
-      <td><span class="tag tag-blue">確認未下注</span></td>
-      <td>已確認未觸發任何下注；嚴禁粗暴過濾「時間」或「修改指令」，明天接續完善改單語意辨識。</td>
+      <td>聊天提到「12:30開盤」、「37改09」被寫入「記錄」人工列。</td>
+      <td><span class="tag tag-blue">未下注，明天接續優化</span><br>已確認未發動下注；嚴禁粗暴擋時間或修改指令，保護客戶真實改單。</td>
     </tr>
     <tr>
-      <td><b>宜芃媽 539 報帳圖待送</b></td>
-      <td>21:44 重新產圖後，TG 預覽訊息 4503 等待人工確認。</td>
-      <td><span class="tag tag-ok">正常把關</span></td>
-      <td><b>非系統故障</b>，為正常安全把關機制。由管理者自行決定是否點擊確認，系統不催問、不代按。</td>
+      <td><b>報帳圖自主決策</b></td>
+      <td>開獎後產圖等人工確認。</td>
+      <td><span class="tag tag-ok">正常流程，不催問</span><br>由管理者完全自行決定是否發送，系統絕不催促、不代按、不重送。</td>
     </tr>
   </table>
 </div>
 
 <div class="box blue">
-  <div class="title"><span class="tag tag-blue">明日接續</span>明天繼續處理（不重複掃歷史）</div>
+  <div class="title"><span class="tag tag-blue">明日接續</span>明天繼續處理</div>
   <ul>
-    <li><b>接續追查</b>：清查今天試算表中其餘 33 筆標記「人工檢查」的注單，確認有無真實漏單或號碼偏差。</li>
-    <li><b>接續生效</b>：將驗證完畢的「收單回報防回鍋過濾」與「小新通知誤標修補」在安全維護窗口平穩載入。</li>
+    <li>繼續檢查今天其餘 33 筆「人工檢查」注單。</li>
+    <li>擇機平穩載入「防回鍋過濾」與「小新通知修補」。</li>
   </ul>
 </div>
 
 <div class="box ok">
   <div class="title"><span class="tag tag-ok">提問狀態</span>有需要你回答的嗎？</div>
-  <b>目前完全沒有。</b> 已知問題皆在隔離環境與測試流程中推進，不需使用者介入回答。
+  <b>目前完全沒有。</b> 不打擾您的決策，問題均由 M小福 持續在後台測試與追蹤。
 </div>
 
 </div>
