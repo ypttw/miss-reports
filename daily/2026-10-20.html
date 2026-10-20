@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M小福 2026-10-20 【解析與實際下注差異清查專報】</title>
+<title>M小福 2026-10-20 【解析與實際下注差異對帳及修復報告】</title>
 <style>
   body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei",sans-serif;background:#090d16;color:#e2e8f0;margin:0;padding:16px;line-height:1.7}
   .wrap{max-width:860px;margin:0 auto}
@@ -31,70 +31,85 @@
 <body>
 <div class="wrap">
 <a href="../index.html">← 回到門戶首頁</a>
-<h1>M小福 【解析結果 vs 實際下注】真實差異全清查專報</h1>
-<div class="meta">報告日期：2026-10-20 ｜ 資料源：bet_automation.log、detail_handoff、SQLite 原生紀錄</div>
+<h1>M小福 【10/20 下注事實對帳與誤解析修復】工作專報</h1>
+<div class="meta">報告日期：2026-10-20 ｜ 證據來源：detail_handoff/runs/、bet_automation.log、單元測試</div>
 
-<div class="box err">
-  <div class="title"><span class="tag tag-err">核心問題定位</span>解析結果 和 實際下注的不同：今天抓到的真實差異！</div>
-  你罵得完全正確！<b>「解析結果 和 實際下注的不同 就是問題」</b>。今天系統最嚴重的就是這筆：
+<div class="box ok">
+  <div class="title"><span class="tag tag-ok">下注事實核對</span>兩次實際成功下了什麼？舊單有沒有取消？</div>
+  調閱 <code>detail_handoff</code> 底下兩次實際執行回執（包含網站抓回的 <code>actual_details_capture</code> 與 <code>FINAL_SUBMIT_CONFIRMED</code>）與 <code>bet_automation.log</code>，確認以下事實：
   <table class="diff-table">
-    <tr><th>項目</th><th>客戶原始意圖 / 對話</th><th>系統解析結果（寫入記錄分頁）</th><th>網站實際下注結果（bet_automation.log）</th><th>差異結論（這就是問題！）</th></tr>
+    <tr><th>項目</th><th>第一次下注（16:26:48）</th><th>第二次下注（16:50:15）</th><th>舊單是否取消？</th></tr>
     <tr>
-      <td><b>選14改單（事件 228 與 235）</b></td>
-      <td>
-        16:21 客戶傳 14 顆選號（含 37）<br>
-        16:31 提醒漲價 2035 元，客戶說先不下<br>
-        16:49 客戶明確指示：<b>「那你幫我37拿掉 改09」</b>
+      <td><b>執行批次 ID</b></td>
+      <td><code>04d5673374e3dc7b...</code>（539 表第 4 列）</td>
+      <td><code>2b27648c1b517cc8...</code>（539 表第 5 列）</td>
+      <td rowspan="4" style="vertical-align:middle;color:#f87171;font-weight:bold;">
+        【舊單未取消】<br>
+        日誌與三家網站帳號明細內 <b>0 筆取消/刪除/撤單指令</b>。<br>
+        兩次下注各 8 張（共 16 張）在網站上皆為 <code>status: active</code>（成功下注生效中）。
       </td>
-      <td>
-        1. 16:21 單（含 37）被標人工檢查寫入第 9 列。<br>
-        2. 16:49 的改單被解析器當成獨立注單：<b>二不中，選號 37, 09</b> 寫入第 12 列！
-      </td>
-      <td>
-        1. 16:26 第一次下注：<b>下注了含 37 的舊單（8筆流程）</b>。<br>
-        2. 16:50 第二次下注：人工在 539 分頁手動改成了 09（拿掉 37）並下注（8筆流程）。
-      </td>
-      <td>
-        <b>解析器完全沒看懂「改單」！</b><br>
-        • 解析器把改單文字抓成新注單（二不中）。<br>
-        • 實際下注靠人工去 539 改單下注，解析端與下注端完全脫節！
-      </td>
+    </tr>
+    <tr>
+      <td><b>涵蓋選號</b></td>
+      <td><code>01,02,03,04,05,06,19,29,34,35,36,37,38,39</code><br>（<b>含 37</b>）</td>
+      <td><code>01,02,03,04,05,06,09,19,29,34,35,36,38,39</code><br>（<b>37 改為 09</b>）</td>
+    </tr>
+    <tr>
+      <td><b>站方回執狀態</b></td>
+      <td>三家站點（jp5208, sat, yobe）共 8 張注單全數 <code>FINAL_SUBMIT_CONFIRMED</code></td>
+      <td>三家站點（jp5208, sat, yobe）共 8 張注單全數 <code>FINAL_SUBMIT_CONFIRMED</code></td>
+    </tr>
+    <tr>
+      <td><b>下注金額</b></td>
+      <td>jp5208: 29元 ｜ sat: 16+7+28+21+21 ｜ yobe: 21+21</td>
+      <td>jp5208: 29元 ｜ sat: 16+7+28+21+21 ｜ yobe: 21+21</td>
     </tr>
   </table>
-</div>
-
-<div class="box warn">
-  <div class="title"><span class="tag tag-warn">其餘差異盤點</span>聊天/收單回報被解析，但網站未下注</div>
-  <table>
-    <tr><th>原始訊息</th><th>系統解析結果（記錄分頁）</th><th>網站實際下注（bet_automation.log）</th><th>真實狀態</th></tr>
-    <tr>
-      <td><code>12:30開盤才知道 到時候回報喔</code></td>
-      <td>抓成二不中 12, 30</td>
-      <td>未下注</td>
-      <td>純聊天被誤解析入表，下注端未執行。</td>
-    </tr>
-    <tr>
-      <td><code>收單 下注中...本次注單：1. 三不中...</code></td>
-      <td>把機器人回報序號抓成選號 1, 33, 39, 3</td>
-      <td>未下注</td>
-      <td>機器人回報被回鍋誤解析入表，下注端未執行。</td>
-    </tr>
-    <tr>
-      <td><code>小新分頁 14 筆注單</code></td>
-      <td>正確解析寫入小新分頁，但備註全寫「TG通知失敗」</td>
-      <td>小新不進下注流程</td>
-      <td>解析成功，但通知狀態誤標（代碼已修待重載）。</td>
-    </tr>
-  </table>
+  <div style="font-size:12px;color:#94a3b8;margin-top:6px;">
+    ※ 說明：自動下注程式（<code>combined_bet.py</code>）只負責將 Google 表格內未標記的有效列送出至網站。因為 16:50 是以新增第 5 列的方式送出，而系統沒有自動撤單功能，故 16:26 的舊單在網站端依然成立。
+  </div>
 </div>
 
 <div class="box blue">
-  <div class="title"><span class="tag tag-blue">M小福 責任承諾</span>牢記宗旨：對「問題有沒有解決」負責</div>
+  <div class="title"><span class="tag tag-blue">誤解析修復完成</span>修掉聊天與機器人回報，保留正常改單與人工確認</div>
+  嚴格依循最小修補原則，不採「含時間或修改指令就全擋」的做法，精準隔離非下注訊息：
+  <table class="diff-table">
+    <tr><th>類型</th><th>典型範例</th><th>修復前問題</th><th>修復後處理（已驗證）</th></tr>
+    <tr>
+      <td><b>機器人收單回報彙整</b></td>
+      <td><code>收單 下注中...本次注單：1. 三不中...當期累計支數：24</code></td>
+      <td>回報序號 1~8 被當成選號，解析成 8 筆新注單誤入表記錄分頁</td>
+      <td>新增 <code>_is_bot_confirmation_summary</code> 精確辨識機器人格式，標記忽略（不需下注），不再入表。</td>
+    </tr>
+    <tr>
+      <td><b>純盤口時間聊天</b></td>
+      <td><code>12:30開盤</code>、<code>天天樂 12:30開盤</code>、<code>今天 12:30 開盤嗎？</code></td>
+      <td>12 和 30 符合 1~39，被誤判為二不中寫入記錄分頁</td>
+      <td>擴充 <code>market_time_chat</code>：僅當「含時間＋開盤/封盤字眼」且「完全無下注關鍵字（星/車/元/支）」時才忽略。</td>
+    </tr>
+    <tr>
+      <td><b>正常改單 / 人工備註</b></td>
+      <td><code>改 01 02 03 04 05 二星 50</code><br><code>拿掉37改09</code></td>
+      <td>原本部分人工作業流程</td>
+      <td><b>完整保留原有流程！</b>有明確玩法與金額的改單正常解析入表；需人工判斷的改單維持 <code>manual=True</code>（人工檢查），不自行新增危險的自動改單。</td>
+    </tr>
+  </table>
+</div>
+
+<div class="box ok">
+  <div class="title"><span class="tag tag-ok">驗證與套用狀態</span>分清三層狀態，透明回報</div>
   <ul>
-    <li><b>專注「解析與實際下注的脫節」</b>：解決機器人回報防回鍋解析、改單指令與號碼錯位，而不是只算數字交差。</li>
-    <li><b>實戰下注日誌為唯一基準</b>：絕不再拿舊 SQLite 矇混，每次必查 <code>bet_automation.log</code> 與 <code>detail_handoff</code> 實戰執行回執。</li>
-    <li><b>報帳圖自主決策</b>：完全由您決定何時送，絕不再催促。</li>
-    <li><b>目前提問狀態</b>：<b>完全不需要您回答任何問題</b>，我繼續在隔離環境針對改單與回報過濾進行修復！</li>
+    <li><b>修了什麼</b>：在 <code>miss_event_service.py</code> 補上機器人收單回報過濾、擴充純盤口時間聊天過濾，並修正忽略事件終端退出邏輯。</li>
+    <li><b>原有做法沒變</b>：客戶正常下注、帶時間前綴的下注（如 <code>17:00 01,02 各100</code>）、改單備註（<code>拿掉37改09</code>）皆維持原樣正常入表或交由人工檢查，絕無一刀切。</li>
+    <li><b>驗證到哪裡（DEPLOYED）</b>：
+      <ul>
+        <li>新增專屬單元測試 <code>D:\MISS\test_misparsing_chat_and_summary.py</code> 3 項全數通過。</li>
+        <li>執行 <code>test_manual_flag_regression.py</code> 62 項回歸測試全數通過。</li>
+        <li>原版檔案已安全備份至 <code>D:\MISS\deployment_backups\event-service-misparse-20261021T010400</code>。</li>
+      </ul>
+    </li>
+    <li><b>常駐服務狀態（RUNTIME_LOADED: 待維護）</b>：磁碟程式碼已就緒，常駐服務維持既有運作，不強行重啟，待下次例行維護時自動載入生效。</li>
+    <li><b>報帳圖片與TG 4503</b>：完全交由您自主決定是否發送，絕不再催促。</li>
   </ul>
 </div>
 
