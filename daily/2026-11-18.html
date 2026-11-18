@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="M小福歷史待辦處理進度；分清已部署、待真實驗收、未部署候選與歷史證據缺口。本頁不是整日完整稽核。">
+<title>M小福 2026-11-18 歷史待辦處理進度</title>
+<style>*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}body{margin:0;background:#090d16;color:#e2e8f0;font-family:-apple-system,BlinkMacSystemFont,"Microsoft JhengHei",sans-serif;font-size:16px;line-height:1.75}.wrap{max-width:940px;margin:auto;padding:20px 18px 42px}a{color:#7dd3fc;text-underline-offset:4px}a:hover{color:#a5f3fc}nav{display:flex;flex-wrap:wrap;gap:10px 18px;padding:8px 0 20px;border-bottom:1px solid #334155}h1{font-size:clamp(25px,5vw,36px);line-height:1.35;color:#fff;margin:24px 0 14px}h2{font-size:22px;color:#7dd3fc;line-height:1.5;margin:34px 0 14px}h3{font-size:18px;line-height:1.5;margin:0 0 8px;color:#fff}p{margin:8px 0;overflow-wrap:anywhere}.kicker{font-size:13px;color:#94a3b8;margin-top:22px}.notice{background:#102436;border:1px solid #1f6885;border-radius:16px;padding:16px 18px}.notice strong{color:#e0f2fe}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{min-width:0;border:1px solid #334155;border-radius:14px;background:#111827;padding:18px}.card.wide{grid-column:1/-1}.pill{display:inline-block;font-size:13px;font-weight:700;border-radius:999px;padding:3px 10px;margin-bottom:10px;background:#1e293b;color:#cbd5e1}.deployed{background:#12382e;color:#9aefc5}.candidate{background:#3b2c13;color:#fcd790}.pending{background:#29243d;color:#d8c9ff}.subtle{color:#94a3b8;font-size:14px}ul{padding-left:22px}li{margin:10px 0}footer{border-top:1px solid #334155;margin-top:32px;padding-top:18px;color:#94a3b8;font-size:14px}@media(max-width:620px){.wrap{padding:14px 14px 32px}.cards{grid-template-columns:1fr}.card.wide{grid-column:auto}.card{padding:16px}h2{font-size:20px}.notice{padding:15px}nav a{padding:6px 0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body><main class="wrap">
+<nav aria-label="報告導覽"><a href="../index.html">回首頁</a><a href="2026-11-17.html">11/17完整日報</a><a href="#history">已處理與保留事項</a><a href="#eight">八類追蹤狀態</a></nav>
+<p class="kicker">M小福 · 歷史待辦接續 · 截至台北時間 2026-11-18 20:02</p>
+<h1>歷史待辦處理進度</h1>
+<div class="notice"><p><strong>本次是歷史追蹤進度，非11/18整日完整稽核。</strong></p><p>接續舊案並用後續證據訂正狀態。程式已部署、服務已載入、真實流程成功分開記錄；沒有證據的部分保留未知。</p><p class="subtle">178筆是歷史追蹤索引，含重疊、已結案、撤回與缺證事項，不是178個故障。本頁不使用過時分類總數當完成率。</p></div>
+<section><h2>已部署，等待真實使用驗收</h2><div class="cards">
+<article class="card"><span class="pill deployed">已部署 · 真驗收未完成</span><h3>管理未確認資料的保存與開始卡</h3><p>正式程式已更新，收單入口已重載。編輯功能的精確載入，以及手機保存後能否出現對應開始卡，仍待真實流程證據。使用者自行確認及開始下注的做法保持，舊資料沒有自動改寫。</p></article>
+<article class="card"><span class="pill deployed">已部署 · 真驗收未完成</span><h3>玩法簡碼後接稱呼的解析</h3><p>正式程式已更新，收單服務已確認載入。原已成功格式及人工確認保持；新真實事件尚未完成自然驗收，不把離線測試當正式使用成功。</p></article>
+</div></section>
+<section><h2>三項舊案已套用，載入與真驗收分開記錄</h2><div class="cards">
+<article class="card"><span class="pill candidate">已部署 · 載入與真驗收待證</span><h3>網址誤收</h3><p>不再把網址中的數字當成注單，混有正常不中單時保留真單與原文。已有指定範圍離線證據，正式程式已套用，收單入口已重載。該模組的精確載入與自然新事件驗收仍待證，健康回應不代功能成功。</p></article>
+<article class="card"><span class="pill candidate">已部署 · 載入與真驗收待證</span><h3>每日列印的重試疊加</h3><p>候選避免同一更新不確定結果在內外層重複重試，保留既定重試及最後阻擋原因。金額、圖片內容、人工預覽確認及通知對象不變。正式程式已套用；模組的精確載入及真實列印重試尚未驗收，沒有為驗證而產圖或發送。</p></article>
+<article class="card wide"><span class="pill deployed">已部署 · 服務已載入 · 待真驗收</span><h3>明寫金額單位的續行格式</h3><p>候選讓明寫單位的金額保留原值，既定簡寫換算及其他來源規則保持。指定範圍已有隔離驗證，正式程式已套用，收單服務啟動版本已確認載入；真實新事件仍待驗收。其他尚無正解的記法不自行擴改。</p></article>
+</div></section>
+<section aria-labelledby="new-question"><h2 id="new-question">新回報解析疑義調查中</h2><p>已接續處理新的解析疑義，目前仍在定位與核對證據，尚未宣稱修好。這與本批已套用的範圍分開記錄，不公開原文、身分或下注內容。</p></section>
+<section><h2>其他候選與提案</h2><div class="cards">
+<article class="card"><span class="pill pending">候選或提案 · 未部署</span><h3>編輯時增減列與回復</h3><p>已同意只製作隔離結構操作候選，仍待驗證與審閱，沒有正式套用授權。這與已部署的同列數保存修補不同，尚未正式生效，不把兩者合併報完成。</p></article>
+<article class="card"><span class="pill pending">候選或提案 · 未部署</span><h3>登入前瀏覽器清理等待</h3><p>保留限定前置等待的修補提案，尚未實作。舊程序已有自行收尾證據，不能寫成目前仍持續卡住；不改送出後未知結果的重試規則。</p></article>
+</div></section>
+<section id="history"><h2>已有證據處理，不再重做</h2><ul>
+<li><strong>匯出與逐列彩種：</strong>既有修補與現版覆蓋證據已找回，不沿舊報告的「未處理」再次製作相同修補。</li>
+<li><strong>使用者已確認的特殊尾碼與考卷：</strong>已確認寫入、已填好或交回的範圍維持結案，不重問、不追加驗收條件。</li>
+<li><strong>班群人名對應：</strong>已核到先前正式修補與載入證據，不再把整項列為尚未實作；其他人工判定的未涵蓋範圍仍按原證據處理。</li>
+<li><strong>正常免發通知與舊格式：</strong>已覆蓋的通知備註與已修格式移出待修，不改舊紀錄、不補發。</li>
+<li><strong>人類已略過、撤回或暫緩：</strong>保持原決定。查帳對話不新增限制，已排除的一般對話不重開修補；全待辦接續不等於取消原暫緩。</li>
+</ul></section>
+<section id="eight"><h2>八類追蹤狀態與缺口</h2><p class="subtle">以下是歷史追蹤目前能確認的範圍，不是今天新增事件的全量查核結果。</p><div class="cards">
+<article class="card"><span class="pill">1 · 歷史缺口保留</span><h3>真單被忽略</h3><p>部分舊來源缺原始對照；本次沒有重做11/18全天來源反向全集，不宣稱全日無漏單。</p></article>
+<article class="card"><span class="pill">2 · 已部署與人類結案分開</span><h3>非注單被誤收</h3><p>網址修補已套用，精確模組載入與自然入口仍待證。查帳對話案已由使用者決定略過，不加新限制；已定性為一般對話的舊案不再重開解析修補。</p></article>
+<article class="card"><span class="pill">3 · 已部署與調查中分開</span><h3>號碼、金額與玩法</h3><p>尾端稱呼解析已部署並載入，待真實新單；明寫單位續行已套用並確認服務載入，待真實新事件驗收。另有新回報解析疑義調查中，不公開原始個案內容。未替任何歷史下注結果補造正解。</p></article>
+<article class="card"><span class="pill">4 · 指定舊項已閉環，其他待驗</span><h3>通知及發送</h3><p>先前待送通知已有自然傳送回執，不重送。管理保存到開始卡仍待手機真流程；通知成功不代表網站下注受理。</p></article>
+<article class="card"><span class="pill">5 · 兩項急件分層記錄</span><h3>程式版本與載入</h3><p>一項已確認服務載入，一項已完成入口重載但編輯模組仍待確認。三項舊案均已套用，收單入口已重載；其中明寫單位解析確認載入，網址與列印的精確模組載入仍未知。全部未取得本輪真實功能驗收，健康回應不代功能成功。</p></article>
+<article class="card"><span class="pill">6 · 歷史身分缺口保留</span><h3>重複收單</h3><p>相同文字、相近時間或不同來源編號不能自行合併。缺唯一受理關聯的舊案仍保留未知；本次未查完整新日重複來源全集。</p></article>
+<article class="card"><span class="pill">7 · 保留原單身分缺口</span><h3>收回與改單</h3><p>舊短句若缺被修改原單的可靠連結，就不猜配或自動處置。增減列回復只獲候選製作同意，未正式套用。</p></article>
+<article class="card"><span class="pill">8 · 列印已套，正常人工流程保留</span><h3>帳務與報表</h3><p>列印重試修補已套用，精確模組載入與真實重試仍待驗；預覽後等人工確認是正常流程。歷史完整金額與來源對帳仍有未涵蓋範圍，不宣稱本日已全部核完。</p></article>
+</div></section>
+<section><h2>缺證據的舊案如何續接</h2><p>部分歷史缺卡、原列移除、改單原單關聯及網站受理缺口，已查到目前保存資料的邊界。沒有原始快照、可靠原單連結或唯一受理回執，就保留未知；不拿現在分頁或後來成功倒填當時，也不為查證重跑下注、補單或重送。</p><p>本批已有單檔讀回與收單重載回執，依實際證據分層更新；其餘候選仍按各自範圍驗證與審閱。已部署功能只沿正常使用取得真實流程證據。原本需要人工確認的流程保持，不因查核而代按、代發或新增收單限制。</p></section>
+<footer><p>本頁只提供去識別功能進度；原始來源、客戶資料及詳細本機證據不在此公開。</p><p>狀態截至台北時間 2026-11-18 20:02；本頁非11/18當日全量稽核，後續新回報或自然驗收另依證據更新。</p><p><a href="../index.html">回報告首頁</a> · <a href="2026-11-17.html">查看11/17完整日報</a></p></footer>
+</main></body></html>
